@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -19,7 +19,11 @@ getweatherData(cityName: string){
       XRapidAPIHostHeaderValue)
     .set(environment.XRapidAPIKeyHeaderName, environment.
       XRapidAPIKeyHeaderValue),
-      params: new HttpParams
+      params: new HttpParams()
+      
+      .set('q',cityName)
+      .set('units','metric')
+      .set('mode','json')
 
   })
 
